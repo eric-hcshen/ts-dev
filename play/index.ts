@@ -1,8 +1,14 @@
 const {writeFile, writeFileV1, readFileV1} = require('./file'); // for nodejs style
 const {eventEmitter} = require('./event');
-const {readableTest} = require('./stream');
+import {getContent} from './ReadCSV';
+//const {readableTest} = require('./stream');
+import {readableTest} from './stream';
 import {Http, Options} from './http';
+import * as util from 'util';
 
+const logger = util.debuglog('foo');
+logger('log test [%s]', new Date());
+/*
 writeFile(process.argv[2]);
 writeFileV1(process.argv[2])
         .then(() => {console.log('File Create Sucessfully! ' + 10 );})
@@ -15,11 +21,13 @@ async function run() {
         await writeFileV1(process.argv[2])
         .then(() => {console.log('File Create Sucessfully! ' + i );})
         .catch((error) => {console.log(error);});
-        await readFileV1(process.argv[2])
-        .then((data) => {console.log(data);})
-        .catch((error) => {console.log(error);});
+        let data = await readFileV1(process.argv[2]);
+        console.log(data);
+        //.then((data) => {console.log(data);})
+        //.catch((error) => {console.log(error);});
     }
 }
+logger('log test [%s]', new Date());
 
 run();
 eventEmitter.emit('Event');
@@ -30,7 +38,7 @@ Http.getHttpStream();
 
 const op: Options = {};
 op.host = 'jsonplaceholder.typicode.com';
-op.path = '/todos/1';
+op.path = '/todos';
 op.method = 'GET';
 //op.headers['Content-ytpe', 'application/json']; ????Index signature
 //op.headers = [ header['Content-type'], 'application/json'];
@@ -47,4 +55,12 @@ op.method = 'GET';
     }
  
 })();
+*/
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var x = fruits.pop();
+console.log(x);
+
+getContent('./data.csv');
+
+
 

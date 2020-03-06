@@ -1,6 +1,6 @@
 import {Readable} from 'stream';
 
-function readableTest() {
+export function readableTest() {
     const stream = new Readable();
     stream.push('Hello');
     stream.push('World');
@@ -14,4 +14,4 @@ function readableTest() {
     })
 }
 
-module.exports ={readableTest};
+//module.exports ={readableTest};

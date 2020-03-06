@@ -21,7 +21,9 @@ export class Http {
               }
               const chunks = [];
               //response.on('error', (Error) => {throw new TypeError('Hi Error Here')});
-              response.on('data', chunk => chunks.push(chunk));
+              response.on('data', chunk => {chunks.push(chunk)
+                    console.log('111' + chunk);
+                });
               response.on('end', () => {
                     const buf = Buffer.concat(chunks).toString();
                     resolve(JSON.parse(buf));
