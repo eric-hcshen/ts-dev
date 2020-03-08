@@ -1,6 +1,7 @@
 const {writeFile, writeFileV1, readFileV1} = require('./file'); // for nodejs style
 const {eventEmitter} = require('./event');
 import {getContent} from './ReadCSV';
+import {RedisRepro} from './RedisRepro'
 //const {readableTest} = require('./stream');
 import {readableTest} from './stream';
 import {Http, Options} from './http';
@@ -55,12 +56,17 @@ op.method = 'GET';
     }
  
 })();
-*/
+
 var fruits = ["Banana", "Orange", "Apple", "Mango"];
 var x = fruits.pop();
 console.log(x);
 
+*/
 getContent('./data.csv');
 
+const repro = new RedisRepro();
+repro.setColbyRow('test', 1.5)
+.then(x => console.log('xxx' + x))
+.catch(err => console.log(err));
 
 
